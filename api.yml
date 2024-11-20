@@ -1,0 +1,97 @@
+openapi: 3.1.0
+info:
+  title: Notes Management Application 
+  description: API to manage users and notes
+  version: 1.0.0
+servers:
+  - url: ''
+paths:
+  /signup:
+    get:
+      operationId: signup
+      requestBody:
+        required: true
+        content:
+          applicationo/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: email
+                password:
+                  type: string
+      responses:
+        '201':
+          description: Signup user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+  /login:
+    get:
+      operationId: login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: email
+                passowrd:
+                  type: string
+      response:
+        '200':
+          description: login user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+  /saveNotes:
+    get:
+      operationId: saveNotes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                content:
+                  type: string
+      responses:
+        '201':
+          description: Save notes
+          content:
+            application/json:
+              schema:
+                type: string
+  /getNotes:
+    get:
+      operationId: getNotes
+      responses:
+        '200':
+          description: Get all notes for a user
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title:
+                    type: string
+                  content:
+                    type: string
+                  createdAt:
+                    type: date
+  

@@ -56,6 +56,28 @@ paths:
                 properties:
                   token:
                     type: string
+    /updateUser:
+      get:
+        operationId: updateUser
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  email:
+                    type: email
+                  password:
+                    type: password
+        responses:
+          '201':
+            description: update user
+            application/json:
+              schema:
+                type: string
   /saveNotes:
     get:
       operationId: saveNotes
